@@ -105,11 +105,11 @@ if (status == "success")
 }
 // CLIENT-MODEL================================================================
 function validatePaymentForm() {
-	// CODE
+	// Account Number
 	if ($("#accountNum").val().trim() == "") {
 		return "Insert accountNum.";
 	}
-	// PRICE-------------------------------
+	// Amount-------------------------------
 	if ($("#amount").val().trim() == "") {
 		return "Insert amount.";
 	}
@@ -120,7 +120,7 @@ function validatePaymentForm() {
 	}
 	// convert to decimal price
 	$("#amount").val(parseFloat(tmpAmount).toFixed(2));
-	// DESCRIPTION------------------------
+	// Date------------------------
 	if ($("#date").val().trim() == "") {
 		return "Insert date.";
 	}

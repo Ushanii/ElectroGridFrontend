@@ -22,26 +22,19 @@ public class PaymentsAPI extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String output = paymentObj.insertPayment(request.getParameter("accountNum"),
 				 request.getParameter("amount"),				
 				request.getParameter("date"));
 				response.getWriter().write(output);
-		//doGet(request, response);
+		
 	}
-    /*
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String output = paymentObj.insertPayment(request.getParameter("accountNum"),
-				request.getParameter("amount"), request.getParameter("date"));
-		response.getWriter().write(output);
-	}*/
-
+    
     private static Map getParasMap(HttpServletRequest request) {
 		Map<String, String> map = new HashMap<String, String>();
 		try {
@@ -60,7 +53,7 @@ public class PaymentsAPI extends HttpServlet {
 	}
 
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		Map paras = getParasMap(request);
 		 String output = paymentObj.updatePayment(paras.get("hidPaymentIDSave").toString(),
 		 paras.get("accountNum").toString(),
@@ -68,14 +61,6 @@ public class PaymentsAPI extends HttpServlet {
 		paras.get("date").toString());		
 		response.getWriter().write(output);
 	}
-/*
-    protected void doPut(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		Map paras = getParasMap(request);
-		String output = paymentObj.updatePayment(paras.get("hidPaymentIDSave").toString(),paras.get("accountNum").toString(),
-						paras.get("amount").toString(), paras.get("date").toString());
-		response.getWriter().write(output);
-	}*/
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

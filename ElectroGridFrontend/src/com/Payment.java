@@ -14,7 +14,7 @@ public class Payment  {
 		return con;
 	}
 
-	// read
+	
 	public String readPayment() {
 		String output = "";
 		try {
@@ -131,30 +131,5 @@ public class Payment  {
 		}
 		return output;
 	}
-	
-	
-/*
-	public String deletePayment(String paymentId) {
-		String output = "";
-		try {
-			Connection con = connect();
-			if (con == null) {
-				return "Error while connecting to the database for deleting.";
-			}
-			// create a prepared statement
-			String query = "delete from payment where paymentId=?";
-			PreparedStatement preparedStmt = con.prepareStatement(query);
-			// binding values
-			preparedStmt.setInt(1, Integer.parseInt(paymentId));
-			// execute the statement
-			preparedStmt.execute();
-			con.close();
-			String newPayment = readPayment();
-			output = "{\"status\":\"success\", \"data\": \"" + newPayment + "\"}";
-		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while deleting the item.\"}";
-			System.err.println(e.getMessage());
-		}
-		return output;
-	}*/
+
 }
